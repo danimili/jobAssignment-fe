@@ -34,7 +34,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
   .photo{
-   height: 150px;
+   height: 80px;
   }
 }
 
