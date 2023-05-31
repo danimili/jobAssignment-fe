@@ -27,7 +27,9 @@ const App = () => {
     console.log(selectedType);
     try {
       const timestamp = Date.now();
-      const response = await axios.get(`/api/photos?category=${type}&page=${currentPage}&timestamp=${timestamp}`);
+      // https://job-assignment-be.vercel.app/
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${type}&page=${currentPage}&timestamp=${timestamp}`);
+      // const response = await axios.get(`/api/photos?category=${type}&page=${currentPage}&timestamp=${timestamp}`);
       setPhotos(response.data);
     } catch (error) {
       console.log(error);
@@ -44,7 +46,8 @@ const App = () => {
     setIsLoading(true);
     try {
       const timestamp = Date.now();
-      const response = await axios.get(`https://your-backend.vercel.app/api/endpoint`);
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?type=${selectedType}&page=${currentPage}&timestamp=${timestamp}`);
+      // const response = await axios.get(`/api/photos?type=${selectedType}&page=${currentPage}&timestamp=${timestamp}`);
       setPhotos(response.data);
       console.log(response.data, "resss data");
     } catch (error) {
