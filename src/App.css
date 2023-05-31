@@ -80,6 +80,10 @@ body {
   .photo-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .photo {
+  width: 100px;
+  height: 100px;
+  }
 }
 
 @media screen and (max-width: 580px) {
