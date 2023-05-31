@@ -29,7 +29,12 @@ body {
 
 @media (max-width: 767px) {
   .photo-grid {
+    display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .photo{
+   height: 150px;
   }
 }
 
