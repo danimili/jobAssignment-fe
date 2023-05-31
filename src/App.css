@@ -21,9 +21,16 @@ body {
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 15px;
   margin-top: 1.2rem;
+}
+
+@media (max-width: 767px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
 
 .photo {
@@ -33,9 +40,6 @@ body {
   border-radius: 12px;
   cursor: pointer;
   border:1px solid #b393d3;
-  @media (max-width: 767px) {
-    width: 50%;
-  }
 }
 
 .photo:hover {
