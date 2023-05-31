@@ -33,6 +33,9 @@ body {
   border-radius: 12px;
   cursor: pointer;
   border:1px solid #b393d3;
+  @media (max-width: 767px) {
+    width: 50%;
+  }
 }
 
 .photo:hover {
@@ -76,7 +79,7 @@ body {
   margin: auto;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -95,4 +98,4 @@ body {
     align-content: center;
     margin-right: -40px;
   }
-}
+} */
