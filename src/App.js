@@ -44,7 +44,7 @@ const App = () => {
     setIsLoading(true);
     try {
       const timestamp = Date.now();
-      const response = await axios.get(`/api/photos?type=${selectedType}&page=${currentPage}&timestamp=${timestamp}`);
+      const response = await axios.get(`https://your-backend.vercel.app/api/endpoint`);
       setPhotos(response.data);
       console.log(response.data, "resss data");
     } catch (error) {
