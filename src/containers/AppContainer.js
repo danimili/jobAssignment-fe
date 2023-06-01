@@ -38,7 +38,7 @@ const AppContainer = () => {
     dispatch(setIsTypeModalOpen(false));
 
     try {
-      const response = await axios.get(`/api/photos?category=${category}&page=${currentPage}`);
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${currentPage}`);
       dispatch(fetchPhotos(response.data));
     } catch (error) {
       console.log(error);
@@ -66,7 +66,7 @@ const AppContainer = () => {
     const fetchData = async () => {
       dispatch(setIsLoading(true));
       try {
-        const response = await axios.get(`/api/photos?type=${selectedType}&page=${currentPage}`);
+        const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?type=${selectedType}&page=${currentPage}`);
         dispatch(fetchPhotos(response.data));
       } catch (error) {
         console.log(error);

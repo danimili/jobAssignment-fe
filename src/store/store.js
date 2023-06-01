@@ -18,7 +18,7 @@ export const fetchPhotos = createAsyncThunk(
   "photos/fetchPhotos",
   async ({ category, page }) => {
     try {
-      const response = await axios.get(`/api/photos?category=${category}&page=${page}`);
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${page}`);
       // Handle the received images data
       return response.data;
     } catch (error) {
