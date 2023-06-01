@@ -27,9 +27,12 @@ const App = () => {
     console.log(selectedType);
     try {
       const timestamp = Date.now();
-      // https://job-assignment-be.vercel.app/
-      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${type}&page=${currentPage}&timestamp=${timestamp}`);
-      // const response = await axios.get(`/api/photos?category=${type}&page=${currentPage}&timestamp=${timestamp}`);
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${type}&page=${currentPage}&timestamp=${timestamp}`, {
+        params: {
+          q: category,
+          sort: "date",
+        }
+      });
       setPhotos(response.data);
     } catch (error) {
       console.log(error);
