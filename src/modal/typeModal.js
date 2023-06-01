@@ -13,7 +13,7 @@ const typeModal = ({ isOpen, onClose, onTypeSelect }) => {
           <h3>Select a Type</h3>
           <ul>
             {types.map((type) => (
-              <li key={type} onClick={() => onTypeSelect(type)}>
+              <li key={type} onClick={() => onTypeSelect({ category: type})}>
                 {type}
               </li>
             ))}
