@@ -36,7 +36,7 @@ const AppContainer = () => {
   const handleTypeSelect = async ({ category }) => {
     dispatch(setSelectedType(category));
     dispatch(setIsTypeModalOpen(false));
-
+console.log(category)
     try {
       const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${currentPage}`, {
         params: {
