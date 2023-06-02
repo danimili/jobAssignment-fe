@@ -38,7 +38,12 @@ const AppContainer = () => {
     dispatch(setIsTypeModalOpen(false));
 
     try {
-      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${currentPage}`);
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${currentPage}`, {
+        params: {
+          q: category,
+          sort: "date",
+        }
+      });
       dispatch(fetchPhotos(response.data));
     } catch (error) {
       console.log(error);
