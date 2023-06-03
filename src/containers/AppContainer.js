@@ -64,14 +64,17 @@ console.log(category)
 
   const handleNextClick = () => {
     dispatch(setCurrentPage(currentPage + 1));
+    console.log('next click')
     dispatch(fetchPhotos({ category: selectedType, page: currentPage + 1 }));
   };
 
   useEffect(() => {
     const fetchData = async () => {
       dispatch(setIsLoading(true));
+      console.log("Fetching data...");
       try {
         const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?type=${selectedType}&page=${currentPage}`);
+        console.log(response.data);
         dispatch(fetchPhotos(response.data));
       } catch (error) {
         console.log(error);
