@@ -102,31 +102,9 @@ const AppContainer = () => {
               Next &#8250;
             </button>
           </div>
-
           {/* Render the fetched photos */}
 
-
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            <div className="photo-grid">
-              {photos.length > 0 ? (
-                photos.map((photo) => (
-                  <img
-                    src={photo.largeImageURL}
-                    alt={photo.tags}
-                    className="photo"
-                    key={photo.id}
-                    onClick={() => handlePictureClick(photo)}
-                  />
-                ))
-              ) : (
-                <p>No photos available</p>
-              )}
-            </div>
-          )}
-
-          {/* {isLoading ? (
+           {isLoading ? (
             <p>Loading...</p>
           ) : (
             <div className="photo-grid">
@@ -140,7 +118,7 @@ const AppContainer = () => {
                 />
               ))}
             </div>
-          )} */}
+          )}
 
           {/* Render the type modal */}
           {isTypeModalOpen && (
