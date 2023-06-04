@@ -15,7 +15,6 @@ const PictureModal = ({ isOpen, onClose, picture }) => {
         <p>Views {views}</p>
         <p>Downloads {downloads}</p>
         <p>Likes {likes}</p>
-        {/* Add more relevant parameters */}
       </div>
     </div>
     </div>

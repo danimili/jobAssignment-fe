@@ -76,7 +76,6 @@ const AppContainer = () => {
       console.log(error);
     }
     console.log('next click')
-    // dispatch(fetchPhotos({ category: selectedType, page: currentPage + 1 }));
   };
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import React from 'react';
 import './modal.css';
 
 const typeModal = ({ isOpen, onClose, onTypeSelect }) => {
-    const types = ['animals', 'sports', 'science']; // Add more types as needed
+    const types = ['animals', 'sports', 'science'];
   
     return (
       <>
