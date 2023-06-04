@@ -36,7 +36,7 @@ const AppContainer = () => {
   const handleTypeSelect = async ({ category }) => {
     dispatch(setSelectedType(category));
     dispatch(setIsTypeModalOpen(false));
-console.log(category)
+    console.log(category)
     try {
       const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${currentPage}`, {
         params: {
@@ -104,7 +104,29 @@ console.log(category)
           </div>
 
           {/* Render the fetched photos */}
+
+
           {isLoading ? (
+            <p>Loading...</p>
+          ) : (
+            <div className="photo-grid">
+              {photos.length > 0 ? (
+                photos.map((photo) => (
+                  <img
+                    src={photo.largeImageURL}
+                    alt={photo.tags}
+                    className="photo"
+                    key={photo.id}
+                    onClick={() => handlePictureClick(photo)}
+                  />
+                ))
+              ) : (
+                <p>No photos available</p>
+              )}
+            </div>
+          )}
+
+          {/* {isLoading ? (
             <p>Loading...</p>
           ) : (
             <div className="photo-grid">
@@ -118,7 +140,7 @@ console.log(category)
                 />
               ))}
             </div>
-          )}
+          )} */}
 
           {/* Render the type modal */}
           {isTypeModalOpen && (
