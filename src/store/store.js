@@ -16,15 +16,29 @@ const initialState = {
 // Create an async thunk to fetch the photos
 export const fetchPhotos = createAsyncThunk(
   "photos/fetchPhotos",
-  async ({ category, page }) => {
+  async ({ photos, category, page }) => {
     try {
-      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${page}`);
-      return response.data;
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${page}`, {
+        params: {
+          q: category,
+          sort: "date",
+        }
+      });
+      const newPhotos = [...photos, ...response.data];
+      return { photos: newPhotos, category, page };
     } catch (error) {
-      // Handle the error
       throw new Error(error.message);
     }
   }
+  // async ({ category, page }) => {
+  //   try {
+  //     const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${category}&page=${page}`);
+  //     return response.data;
+  //   } catch (error) {
+  //     // Handle the error
+  //     throw new Error(error.message);
+  //   }
+  // }
 );
 
 // Create a slice for the photos
@@ -53,8 +67,15 @@ const photosSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPhotos.fulfilled, (state, action) => {
-      state.photos = action.payload;
+      const { photos, category, page } = action.payload;
+
+      if (state.selectedType === category && state.currentPage === page) {
+        state.photos = photos;
+      }
+
       state.error = null;
+      // state.photos = action.payload;
+      // state.error = null;
     });
     builder.addCase(fetchPhotos.rejected, (state, action) => {
       state.error = action.error.message;

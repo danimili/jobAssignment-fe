@@ -62,8 +62,19 @@ const AppContainer = () => {
     }
   };
 
-  const handleNextClick = () => {
+  const handleNextClick = async () => {
     dispatch(setCurrentPage(currentPage + 1));
+    try {
+      const response = await axios.get(`https://job-assignment-be.vercel.app/api/photos?category=${selectedType}&page=${currentPage + 1}`, {
+        params: {
+          q: selectedType,
+          sort: "date",
+        }
+      });
+      dispatch(fetchPhotos(response.data));
+    } catch (error) {
+      console.log(error);
+    }
     console.log('next click')
     // dispatch(fetchPhotos({ category: selectedType, page: currentPage + 1 }));
   };
